@@ -1,7 +1,8 @@
 import express, { urlencoded } from 'express';
 import { crearTransferencia, crearUsuario, mostrarUsuarios, editarUsuario, eliminarUsuario, mostrarTransferencias } from './models/bancosolar.js';
 const app = express();
-const port = 3000;
+const port = process.env.PORT ?? 8080;
+
 app.use(express.static("public"))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -57,8 +58,8 @@ app.get("/transferencias", async (req,res)=>{
 
 
 
-app.listen(port,() => {
-    console.log(`Servidor iniciado en http://localhost:${port}`);
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
   });
 
 
