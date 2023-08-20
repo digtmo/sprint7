@@ -198,7 +198,7 @@
     const balance = $("#balanceEdit").val();
     try {
       const { data } = await axios.put(
-        `https://sprint7-sj6t-dev.fl0.io//usuario?id=${id}`,
+        `https://sprint7-sj6t-dev.fl0.io/usuario?id=${id}`,
         {
           nombre,
           balance,
@@ -217,7 +217,7 @@
     let nombre = $("form:first input:first").val();
     let balance = Number($("form:first input:nth-child(2)").val());
     try {
-      const response = await fetch("https://sprint7-sj6t-dev.fl0.io//usuario", {
+      const response = await fetch("https://sprint7-sj6t-dev.fl0.io/usuario", {
         method: "post",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -244,7 +244,7 @@
       return false;
     }
     try {
-      const response = await fetch("https://sprint7-sj6t-dev.fl0.io//transferencia", {
+      const response = await fetch("https://sprint7-sj6t-dev.fl0.io/transferencia", {
         method: "post",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -263,7 +263,7 @@
 
   const getUsuarios = async () => {
     console.log("getUsuarios")
-    const response = await fetch("https://sprint7-sj6t-dev.fl0.io//usuarios");
+    const response = await fetch("https://sprint7-sj6t-dev.fl0.io/usuarios");
     let data = await response.json();
     $(".usuarios").html("");
 
@@ -291,12 +291,12 @@
   };
 
   const eliminarUsuario = async (id) => {
-    const response = await fetch(`https://sprint7-sj6t-dev.fl0.io//usuario?id=${id}`, 
+    const response = await fetch(`https://sprint7-sj6t-dev.fl0.io/usuario?id=${id}`, 
     {method: "DELETE", });
   };
 
   const getTransferencias = async () => {
-    const { data } = await axios.get("https://sprint7-sj6t-dev.fl0.io//transferencias");
+    const { data } = await axios.get("https://sprint7-sj6t-dev.fl0.io/transferencias");
     $(".transferencias").html("");
       console.log(data)
 
